@@ -1,0 +1,9 @@
+*.csv
+*.pdf
+*.ods
+*.xlsx
+*.pbix
+_pycache__
+_pycache__/*
+*.pyc
+*_pycache__

@@ -1,0 +1,13 @@
+o que puder listar vinculos, lista
+
+contas bancárias
+	financeiro/relatórios/bancos/saldo de caixa e bancos
+	colocar vinculos
+
+Despesa
+	despesa consolidada por elementos
+	salvar um arquivo para cada recurso nas pastas mensais
+
+Receita
+	Demonstrativo da Receita Mensal
+	colocar vínculos
