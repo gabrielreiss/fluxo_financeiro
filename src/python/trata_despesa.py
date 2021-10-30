@@ -9,9 +9,6 @@ DATA_DIR = os.path.join(BASE_DIR, 'dados')
 TRATADOS_DIR = os.path.join(DATA_DIR, 'dados_tratados')
 DESPESA_DIR = os.path.join(DATA_DIR, 'Despesas')
 
-M = 9
-recurso = 0
-
 def arquivos_despesa(M, DESPESA_DIR):
     arr_csv = [x for x in os.listdir(os.path.join(DESPESA_DIR, str(M))) if x.endswith(".csv")]
     return arr_csv
@@ -110,6 +107,7 @@ def tabela_despesa(M,recurso):
             '34450000000000000000',
             '34490510000000000000',
             '34490520000000000000',
+            '34490610000000000000',
             '34600000000000000000',
 
             '39999000000000000000'
@@ -137,12 +135,12 @@ def trata_despesa(inicial, final):
                     df = tabela_despesa(M, recurso)
                     first = False
                 except:
-                    None
+                    print(M)
             else:
                 try:
-                    df = append(tabela_despesa(M, recurso))
+                    df = df.append(tabela_despesa(M, recurso))
                 except:
-                    None
+                    print(M)
 
     df.to_csv(os.path.join(TRATADOS_DIR, 'despesas power bi.csv'), index=None, sep = ';', decimal = ',')
 

@@ -36,9 +36,9 @@ def trata_receita(M,recurso):
     df['Orçado Atualizado'] = transforma_numero(df['Orçado Atualizado'])
     df['Arrecadado'] = transforma_numero(df['Arrecadado'])
     df['Vinculo'] = vinculo[recurso]
-    df['Mes'] = M
+    df['mes'] = M
 
-    df = df[['Descrição', 'Conta Receita', 'Vinculo', 'Orçado Atualizado', 'Arrecadado', 'Mes']]
+    df = df[['Descrição', 'Conta Receita', 'Vinculo', 'Orçado Atualizado', 'Arrecadado', 'mes']]
 
     #Seleciona contas para base de calculo
     contas = [
@@ -82,7 +82,7 @@ def exporta_receita(inicial, final):
 
     df = pd.pivot_table(df, 
                     values = 'Arrecadado', 
-                    columns = 'Mes', 
+                    columns = 'mes', 
                     index=['Vinculo','Conta Receita', 'Descrição'], 
                     aggfunc = 'sum'
                     )

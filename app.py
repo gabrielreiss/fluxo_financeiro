@@ -2,7 +2,7 @@ from src.python.trata_receita import *
 from src.python.trata_bancos import *
 from src.python.trata_despesa import *
 
-inicial = 9
+inicial = 1
 final = 9
 
 exporta_receita(inicial, final)
