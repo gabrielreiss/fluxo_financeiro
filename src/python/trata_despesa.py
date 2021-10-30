@@ -17,6 +17,9 @@ def arquivos_despesa(M, DESPESA_DIR):
     return arr_csv
 
 def tabela_despesa(M,recurso):
+
+    arr_csv = arquivos_despesa(M, DESPESA_DIR)
+    vinculo = [x.replace('.csv','') for x in arr_csv]
     
     df = pd.read_csv(os.path.join(DESPESA_DIR,str(M),arr_csv[recurso]), 
                     encoding='latin-1', 
@@ -128,12 +131,11 @@ def tabela_despesa(M,recurso):
 def trata_despesa(inicial, final):
     first = True
     for M in range(inicial, final + 1):
-        arr_csv = arquivos_despesa(M, DESPESA_DIR)
-        vinculo = [x.replace('.csv','') for x in arr_csv]
         for recurso in range(0,len(arquivos_despesa(M, DESPESA_DIR))):
             if first:
                 try:
                     df = tabela_despesa(M, recurso)
+                    first = False
                 except:
                     None
             else:
@@ -147,7 +149,7 @@ def trata_despesa(inicial, final):
     df = pd.pivot_table(df, 
                         values = 'pago', 
                         columns = 'mes', 
-                        index=['Vinculo','elemento', 'descricao'], 
+                        index=['vinculo','elemento', 'descricao'], 
                         aggfunc = 'sum'
                         )
 
